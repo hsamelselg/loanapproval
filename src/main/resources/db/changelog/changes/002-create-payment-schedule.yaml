@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-payment-schedule
+      author: developer
+      changes:
+        - createTable:
+            tableName: payment_schedule
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: loan_application_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_schedule_loan
+                    references: loan_application(id)
+              - column:
+                  name: payment_number
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: principal_amount
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: interest_amount
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total_payment
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: remaining_balance
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false

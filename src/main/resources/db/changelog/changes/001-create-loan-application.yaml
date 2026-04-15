@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-loan-application
+      author: developer
+      changes:
+        - createTable:
+            tableName: loan_application
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: personal_code
+                  type: varchar(11)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: loan_period_months
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: interest_margin
+                  type: decimal(10,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: base_interest_rate
+                  type: decimal(10,4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: loan_amount
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rejection_reason
+                  type: varchar(50)
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: loan-approval
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/loan_approval
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+loan:
+  max-age-years: 70
+  min-loan-amount: 5000
+  min-loan-period-months: 6
+  max-loan-period-months: 360
+
